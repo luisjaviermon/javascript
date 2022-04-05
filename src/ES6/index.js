@@ -53,3 +53,51 @@ console.log(team);
 }
 
 console.log(localVar);
+
+//promesas
+function hello_promise(){
+  return new Promise((resolve,reject) => {
+    if(true){
+      resolve('exito');
+    }else{
+      reject('ocurrio un error');
+    }
+  })
+}
+
+hello_promise()
+  .then(response => console.log(response))
+  .then(() => console.log('funcion terminada con exito'))
+  .catch(error => console.log(error));
+
+//clases
+class auto{
+  constructor(modelo, marca){
+    this.modelo = modelo;
+    this.marca = marca;
+  }
+
+  getAuto(){
+    console.log(`el la marca ${this.marca} tiene el modelo ${this.modelo}`);
+  }
+}
+
+const auto1 = new auto('chevy','chevrolet');
+auto1.getAuto();
+
+import { hello_module, num } from './module.js';
+console.log(hello_module(),num);
+
+//funciones generadoras
+function* hello_generator(){
+  if(true){
+    yield 'hello';
+  }
+  if(true){
+    yield 'world';
+  }
+}
+
+const generator_hello = hello_generator();
+console.log(generator_hello.next().value);
+console.log(generator_hello.next().value);
